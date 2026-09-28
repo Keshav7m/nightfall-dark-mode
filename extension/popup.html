@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nightfall</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <img src="icons/icon32.png" alt="" width="20" height="20">
+      <span>Nightfall</span>
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="enabled" aria-describedby="globalLabel">
+      <span class="track" aria-hidden="true"><span class="thumb"></span></span>
+    </label>
+  </header>
+  <p class="global-label" id="globalLabel"></p>
+
+  <section class="site" id="siteCard">
+    <div class="moon" id="moon" aria-hidden="true"><span class="shade"></span></div>
+    <div class="site-text">
+      <p class="host" id="host">This page</p>
+      <p class="status" id="status">Checking…</p>
+    </div>
+    <div class="seg" id="seg" role="radiogroup" aria-label="Rule for this site">
+      <button type="button" role="radio" data-rule="default">Auto</button>
+      <button type="button" role="radio" data-rule="on">Always dark</button>
+      <button type="button" role="radio" data-rule="off">Never</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Adjust</h2>
+      <button type="button" class="link" id="reset">Reset</button>
+    </div>
+    <div class="slider">
+      <label for="brightness">Brightness</label><output id="brightnessOut"></output>
+      <input type="range" id="brightness" min="50" max="150" step="1">
+    </div>
+    <div class="slider">
+      <label for="contrast">Contrast</label><output id="contrastOut"></output>
+      <input type="range" id="contrast" min="50" max="150" step="1">
+    </div>
+    <div class="slider">
+      <label for="sepia">Warmth (sepia)</label><output id="sepiaOut"></output>
+      <input type="range" id="sepia" min="0" max="100" step="1">
+    </div>
+    <div class="slider">
+      <label for="grayscale">Grayscale</label><output id="grayscaleOut"></output>
+      <input type="range" id="grayscale" min="0" max="100" step="1">
+    </div>
+  </section>
+
+  <label class="check">
+    <input type="checkbox" id="skipDark">
+    <span>Leave sites alone that already look dark</span>
+  </label>
+
+  <details class="rules">
+    <summary>Site rules <span class="count" id="ruleCount"></span></summary>
+    <ul id="ruleList"></ul>
+    <p class="empty" id="ruleEmpty">No site rules yet. Pick “Always dark” or “Never” above to add one.</p>
+  </details>
+
+  <footer id="shortcut"></footer>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
